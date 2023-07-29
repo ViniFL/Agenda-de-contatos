@@ -1,16 +1,22 @@
 package com.vinicius.schedule.entities;
 
-public class Contact {
+import jakarta.persistence.*;
 
+@Entity
+@Table
+public class Contacts {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String cellphone;
     private String address;
 
-    public Contact() {
+    public Contacts() {
     }
 
-    public Contact(Long id, String name, String cellphone, String address) {
+    public Contacts(Long id, String name, String cellphone, String address) {
         this.id = id;
         this.name = name;
         this.cellphone = cellphone;
@@ -54,7 +60,7 @@ public class Contact {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Contact contact = (Contact) o;
+        Contacts contact = (Contacts) o;
 
         return id.equals(contact.id);
     }
